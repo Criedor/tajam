@@ -737,14 +737,8 @@ p.team_become {
       text-align: left;
       margin: 0 20px 20px 0;
      }
-      
-     #player {
-       display: none;
-       padding: 20px 20px;
-       width: 400px;
-     }
-		
-    .expertise_grid {
+
+     .expertise_grid {
       max-width:930px;
       display: grid;
       grid-template-columns: 1fr 1fr;
