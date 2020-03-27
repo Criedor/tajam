@@ -268,13 +268,18 @@ p {
   justify-content: center;
 }
 
+#player {
+  display: none;
+  padding: 20px 20px;
+}
+
 .videoWrapper{
   text-align: center;
-
 }
 
 
-.video_btn {
+#video_btn {
+  display: inline;
   padding: 0 0 30px 0;
   cursor: pointer;
 }
