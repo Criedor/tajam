@@ -87,7 +87,8 @@
 
 			<div class="video_bgWrapper">
 				<div class="videoWrapper">
-					<img class="video_btn" alt="WATCH OUR STORY" src="src/png/play.png">
+					<div id="player"></div>
+					<img id="video_btn" onclick="showPlayer()" alt="WATCH OUR STORY" src="src/png/play.png">
 					<h3>WATCH OUR STORY</h3>		
 				</div>
 			</div>
@@ -186,10 +187,10 @@
 									<div><img src="src/png/barneys.png" alt="barneys"></div>
 									<div><img src="src/png/gucci.png" alt="gucci"></div>
 									<div><img src="src/png/puma.png" alt="puma"></div>
-									<div><img src="src/png/calvin.png" alt="calvin"></div>
+									<div><img src="src/png/calvin.png" alt="calvin"style="padding-top: 35px;"></div>
 									<div><img src="src/png/nike.png" alt="nike"></div>
 									<div><img src="src/png/converse.png" alt="converse"></div>
-									<div><img src="src/png/billabong.png" alt="billa"></div>
+									<div><img src="src/png/billabong.png" alt="billabong" style="padding-top:5px;"></div>
 									<div><img src="src/png/levis.png" alt="levis"></div>
 								</div>
 							</div>
@@ -229,7 +230,7 @@
 								</div>
 
 							<div class="footer_3">
-								<h3>StAY IN TOUCH</h3>
+								<h3>STAY IN TOUCH</h3>
 								<input type="text" value="Subscribe our newsletter">
 								<img class="newsletter" src="src/png/paper122.png" alt="newsletter">
 								<div class="socialmedia">
@@ -295,5 +296,32 @@
 					document.documentElement.scrollTop = 0;
 				}
 		</script>
+		<script>
+			var tag = document.createElement('script');
+	  
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	  
+			var player;
+			function onYouTubeIframeAPIReady() {
+			  player = new YT.Player('player', {
+				height: '500',
+				width: '960',
+				videoId: 'YCN-a0NsNk',
+				
+       		 });
+			}
+		
+			function onPlayerReady(event) {
+		        event.target.playVideo();
+			}
+
+			function showPlayer() {
+				document.getElementById("player").style.display = "inline";
+				document.getElementById("video_btn").style.display = "none";
+				player.playVideo();
+			}
+	  	  </script>
 	</body>
 </html>
