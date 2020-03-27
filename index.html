@@ -86,7 +86,7 @@
 			</div>
 
 			<div class="video-bgWrapper">
-				<div class="videoWrapper">
+				<!--<div id="player" class="videoWrapper">-->
 					<img class="video_btn" alt="WATCH OUR STORY" src="src/png/play.png">
 					<h3>WATCH OUR STORY</h3>		
 				</div>
@@ -180,16 +180,16 @@
  							<div class="people_client">
 								<h2>OUR HAPPY CLIENTS</h2>
 								<div class="people_logo">
-									<div><img src="/src/png/Zara_Logo.png" alt="zara"></div>
-									<div><img src="/src/png/Logo_of_Mango_(new).png" alt="mango"></div>
-									<div><img src="/src/png/1280px-Barneys_New_York_Logo.png" alt="barneys"></div>
-									<div><img src="/src/png/1280px-Gucci_Logo.png" alt="gucci"></div>
-									<div><img src="/src/png/Puma_Logo.png" alt="puma"></div>
-									<div><img src="/src/png/Calvin_klein_logo.png" alt="calvin"></div>
-									<div><img src="/src/png/1280px-Logo_NIKE.png" alt="nike"></div>
-									<div><img src="/src/png/Converse_logo.png" alt="converse"></div>
-									<div><img src="/src/png/Billabong.png" alt="billa"></div>
-									<div><img src="/src/png/1280px-Levi's_logo.png" alt="levis"></div>
+									<div><img src="/src/png/zara.png" alt="zara"></div>
+									<div><img src="/src/png/mango.png" alt="mango"></div>
+									<div><img src="/src/png/barneys.png" alt="barneys"></div>
+									<div><img src="/src/png/gucci.png" alt="gucci"></div>
+									<div><img src="/src/png/puma.png" alt="puma"></div>
+									<div><img src="/src/png/calvin.png" alt="calvin"></div>
+									<div><img src="/src/png/nike.png" alt="nike"></div>
+									<div><img src="/src/png/converse.png" alt="converse"></div>
+									<div><img src="/src/png/billabong.png" alt="billa"></div>
+									<div><img src="/src/png/levis.png.png" alt="levis"></div>
 								</div>
 							</div>
 						</div> 
@@ -293,6 +293,50 @@
 					document.body.scrollTop = 0;
 					document.documentElement.scrollTop = 0;
 				}
-				</script>
+		</script>
+		<script>
+			// 2. This code loads the IFrame Player API code asynchronously.
+			var tag = document.createElement('script');
+	  
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	  
+			// 3. This function creates an <iframe> (and YouTube player)
+			//    after the API code downloads.
+			var player;
+			function onYouTubeIframeAPIReady() {
+			  player = new YT.Player('player', {
+				height: '360',
+				width: '640',
+				videoId: 'M7lc1UVf-VE',
+				events: {
+				  'onReady': onPlayerReady,
+				  'onStateChange': onPlayerStateChange
+				}
+			  });
+			}
+	  
+			// 4. The API will call this function when the video player is ready.
+			function onPlayerReady(event) {
+				$('img').click(function() { 
+        		ytPlayer.playVideo();
+    			});
+}
+	  
+			// 5. The API calls this function when the player's state changes.
+			//    The function indicates that when playing a video (state=1),
+			//    the player should play for six seconds and then stop.
+			var done = false;
+			function onPlayerStateChange(event) {
+			  if (event.data == YT.PlayerState.PLAYING && !done) {
+				setTimeout(stopVideo, 6000);
+				done = true;
+			  }
+			}
+			function stopVideo() {
+			  player.stopVideo();
+			}
+		  </script>
 	</body>
 </html>
