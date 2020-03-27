@@ -257,7 +257,7 @@ p {
 
 
 /* Video SECTION */
-.video-bgWrapper{
+.video_bgWrapper{
   grid-column: 1 / span 3;
   grid-row: 4;
   background-image: url('../src/png/bgk-middle.png');
